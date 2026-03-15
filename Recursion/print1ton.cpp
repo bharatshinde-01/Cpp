@@ -46,6 +46,6 @@ if ( n == 0) {
       int n;
       cout<<" Enter the N number :";
       cin>>n;
-      num( n, 0); hello 
+      num( n, 0); 
    
       }
