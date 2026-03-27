@@ -17,7 +17,7 @@ int main() {
     }
 
     for (int i = 0; i < n; i++) {
-        if( i % 2 ==0){
+        if( i % 2 ==0){         // i is a index of array and arr[i] is element of an array 
             eve = eve + arr[i];
         }
         else {
