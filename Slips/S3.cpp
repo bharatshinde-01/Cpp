@@ -64,7 +64,7 @@ public:
         cout << setw(20) << left << "Name:" << name << endl;
 
         cout << setw(20) << left << "Address:" << addr << endl;
-        
+
 
         cout << setw(20) << left << "Contact:" << contact << endl;
 
@@ -73,7 +73,7 @@ public:
 };
 
 int main() {
-
+    
     // 👉 object bana rahe hai (class ka real use)
     Bank_Account b;
 
