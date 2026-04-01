@@ -13,7 +13,7 @@ int main() {
     }
     cout << "Copy one array to another array in Reverse order :";
     for (int i = 0; i < n; i++) {
-        brr[i] = arr[n - 1 - i];
+        brr[i] = arr[n - 1 - i];    // store reverse element's of arr[] elements 's
     }
     for (int i = 0; i < n; i++) {
         cout << brr[i] <<"  ";
