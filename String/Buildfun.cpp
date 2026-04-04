@@ -18,7 +18,7 @@ int main() {
     cout << "After clear(); use :"<<str<<endl;
 
     str = str + "Bharat"; // + this operator add sting starting 
-    cout << "After use + operator "<<str<<endl;
+    cout << "After use + operator "<<str<<endl; 
 
     str = "Shinde  " + str; // + this operator add sting last basically he is best version of append(); function
     cout << "Before use + operator :" <<str<<endl;
