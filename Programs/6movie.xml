@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<Mayanagari_CD_Store>
+
+<Classical>
+    <MovieName>Shankarabharanam</MovieName>
+    <ReleaseYear>1980</ReleaseYear>
+</Classical>
+
+<Action>
+    <MovieName>War</MovieName>
+    <ReleaseYear>2019</ReleaseYear>
+</Action>
+
+<Horror>
+    <MovieName>Raaz</MovieName>
+    <ReleaseYear>2002</ReleaseYear>
+</Horror>
+
+</Mayanagari_CD_Store>
