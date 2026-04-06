@@ -1,0 +1,69 @@
+Create xml file player.xml 
+
+<?xml version="1.0"?>
+
+<players>
+
+<player>
+<name>Sachin</name>
+<runs>2000</runs>
+<wickets>100</wickets>
+<matches>20</matches>
+</player>
+
+<player>
+<name>Dhoni</name>
+<runs>1500</runs>
+<wickets>10</wickets>
+<matches>30</matches>
+</player>
+
+<player>
+<name>Kohli</name>
+<runs>1800</runs>
+<wickets>60</wickets>
+<matches>25</matches>
+</player>
+
+<player>
+<name>Rohit</name>
+<runs>900</runs>
+<wickets>55</wickets>
+<matches>22</matches>
+</player>
+
+<player>
+<name>Hardik</name>
+<runs>1300</runs>
+<wickets>70</wickets>
+<matches>18</matches>
+</player>
+
+</players>
+
+
+create fiel display.php 
+
+<?php
+
+$xml = simplexml_load_file("players.xml");   // XML read
+
+echo "<table border=1>";
+echo "<tr><th>Name</th><th>Runs</th><th>Wickets</th><th>Matches</th></tr>";
+
+foreach($xml->player as $p)
+{
+    if($p->runs > 1200 && $p->wickets >= 50)   // condition check
+    {
+        echo "<tr>";
+        echo "<td>".$p->name."</td>";
+        echo "<td>".$p->runs."</td>";
+        echo "<td>".$p->wickets."</td>";
+        echo "<td>".$p->matches."</td>";
+        echo "</tr>";
+    }
+}
+
+echo "</table>";
+
+?>
