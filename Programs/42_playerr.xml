@@ -1,0 +1,87 @@
+create player.xml 
+
+<?xml version="1.0"?>
+
+<players>
+
+<player>
+<name>Sachin</name>
+<country>India</country>
+<runs>18000</runs>
+<wickets>150</wickets>
+</player>
+
+<player>
+<name>Kohli</name>
+<country>India</country>
+<runs>12000</runs>
+<wickets>50</wickets>
+</player>
+
+<player>
+<name>Smith</name>
+<country>Australia</country>
+<runs>9000</runs>
+<wickets>30</wickets>
+</player>
+
+</players>
+
+Create index.html 
+
+<html>
+<head>
+<script>
+function showPlayer(str)
+{
+    var xhttp = new XMLHttpRequest();   // AJAX
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState==4 && this.status==200)
+        {
+            document.getElementById("out").innerHTML = this.responseText;
+        }
+    };
+
+    xhttp.open("GET","player.php?name="+str,true);
+    xhttp.send();
+}
+</script>
+</head>
+
+<body>
+
+<select onchange="showPlayer(this.value)">
+<option value="">Select Player</option>
+<option value="Sachin">Sachin</option>
+<option value="Kohli">Kohli</option>
+<option value="Smith">Smith</option>
+</select>
+
+<div id="out"></div>
+
+</body>
+</html>
+
+
+Create player.php 
+
+<?php
+
+$name = $_GET['name'];
+
+$xml = simplexml_load_file("players.xml");   // XML read
+
+foreach($xml->player as $p)
+{
+    if($p->name == $name)   // match player
+    {
+        echo "Name: ".$p->name."<br>";
+        echo "Country: ".$p->country."<br>";
+        echo "Runs: ".$p->runs."<br>";
+        echo "Wickets: ".$p->wickets;
+    }
+}
+
+?>
