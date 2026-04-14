@@ -24,66 +24,27 @@
 
 
 <?php
-// --- STEP 1: XML File Create Karna ---
-$xml = new DOMDocument("1.0", "UTF-8");
-$xml->formatOutput = true; // Taaki XML file properly indented dikhe
 
-// Root element create karein
-$root = $xml->createElement("breakfast_menu");
-$xml->appendChild($root);
+// Create XML object
+$xml = new SimpleXMLElement('<breakfast_menu/>');
 
-// Pehla food item (French Fries)
-$food1 = $xml->createElement("food");
-$food1->appendChild($xml->createElement("name", "French Fries"));
-$food1->appendChild($xml->createElement("price", "Rs45"));
-$food1->appendChild($xml->createElement("description", "Young youths are very much interested to eat it"));
-$food1->appendChild($xml->createElement("calories", "650"));
-$root->appendChild($food1);
+// Add first food item
+$food = $xml->addChild('food');
+$food->addChild('name', 'French Fries');
+$food->addChild('price', 'Rs45');
+$food->addChild('description', 'Young youths are very much interested to eat it');
+$food->addChild('calories', '650');
 
-// File save karein
-$xml->save("breakfast.xml");
-echo "1. 'breakfast.xml' created with French Fries.<br>";
+// Add second food item (Juice)
+$food2 = $xml->addChild('food');
+$food2->addChild('name', 'Orange Juice');
+$food2->addChild('price', 'Rs30');
+$food2->addChild('description', 'Fresh and healthy juice');
+$food2->addChild('calories', '120');
 
-// --- STEP 2: Multiple Juice Elements Add Karna ---
-// Bani hui file ko wapas load karein
-$xmlLoad = new DOMDocument();
-$xmlLoad->load("breakfast.xml");
-$xmlLoad->formatOutput = true;
+// Save XML file
+$xml->asXML('breakfast.xml');
 
-$rootNode = $xmlLoad->getElementsByTagName("breakfast_menu")->item(0);
+echo "XML file created successfully!";
 
-// Juice Items ka array (Multiple elements handle karne ke liye)
-$juiceItems = [
-    [
-        "name" => "Orange Juice",
-        "price" => "Rs30",
-        "description" => "Freshly squeezed vitamin C rich juice",
-        "calories" => "120"
-    ],
-    [
-        "name" => "Apple Juice",
-        "price" => "Rs50",
-        "description" => "Pure apple juice with no added sugar",
-        "calories" => "150"
-    ]
-];
-
-// Loop chalakar items add karein
-foreach ($juiceItems as $item) {
-    $food = $xmlLoad->createElement("food");
-    
-    // Category attribute add karna optional hai, par clearity ke liye achha hai
-    $food->setAttribute("category", "Juice"); 
-    
-    $food->appendChild($xmlLoad->createElement("name", $item['name']));
-    $food->appendChild($xmlLoad->createElement("price", $item['price']));
-    $food->appendChild($xmlLoad->createElement("description", $item['description']));
-    $food->appendChild($xmlLoad->createElement("calories", $item['calories']));
-    
-    $rootNode->appendChild($food);
-}
-
-// Final file save karein
-$xmlLoad->save("breakfast.xml");
-echo "2. Multiple Juice elements added successfully!";
 ?>
