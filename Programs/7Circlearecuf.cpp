@@ -1,40 +1,25 @@
 #include<iostream.h>
-#include<conio.h>
 #include<iomanip.h>
+#include<conio.h>
 
-class Circle
+float pi = 3.14;
+
+// default argument use kiya
+void circle(float r = 5)
 {
-    float r;
+    cout << "\nRadius = " << r;
 
-public:
-    void getdata(float x = 5)   // default argument (agar value na de to 5 use hoga)
-    {
-        r = x;
-    }
-
-    void display();
-};
-
-void Circle::display()   // scope resolution operator
-{
-    float area, circum;
-
-    area = 3.14 * r * r;
-    circum = 2 * 3.14 * r;
-
-    cout<<setw(10)<<"Radius"<<setw(10)<<"Area"<<setw(15)<<"Circumference"<<endl; // manipulator
-    cout<<setw(10)<<r<<setw(10)<<area<<setw(15)<<circum; // manipulator
+    // direct formula (simple way)
+    cout << "\nArea = " << setprecision(4) << ::pi * r * r;
+    cout << "\nCircumference = " << setprecision(4) << 2 * ::pi * r;
 }
 
 void main()
 {
-    Circle c;
-
     clrscr();
 
-    c.getdata();   // default value use hui (5)
-
-    c.display();
+    circle();      // default value
+    circle(7);     // dusri value
 
     getch();
 }
