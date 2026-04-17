@@ -4,9 +4,10 @@ using namespace std;
 class Student {         // user definded data type 
                     // Class is User definided data type that contains of data member or
                     // member  is a templet or bluprint 
+    
     public:
-    string name;
-    int rollno;
+    string name; // this ia a attributes Student
+    int rollno;  // this is a also a attribute of Student
 };
 int main() {
     Student s1; // s1 is a object of a class 
