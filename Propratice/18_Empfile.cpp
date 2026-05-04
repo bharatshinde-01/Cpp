@@ -2,49 +2,45 @@
 // Write necessary member functions for the following:
 // a. Accept the details and store it into the file “Emp.dat”
 // b. Read the details from file and display it. 
+
 #include <bits/stdc++.h>
 using namespace std;
-    class Emp {
+    class Employee {
     public:
         int no;
-        string name;
-        int mark;
-        Emp(){}
-        void GetEmp() {
-            cout << "Enter your no :";
+        char name[50];
+        float mrk;
+        Employee(){}
+        void Getdata() {
+            cout << "Enter your Employee no :";
             cin >> no;
             cout << "Enter your name :";
             cin>>name;
+           
             cout << "Enter your marks :";
-            cin >> mark;
+            cin >> mrk;
         }
-        void Write() {
+        void Write () {
             ofstream file;
-            file.open("emp.dat");
-            file << no <<endl;
-            file << name <<endl;
-            file << mark <<endl;
+            file.open("Emp.dat");
+            file <<no << "  ";
+            file << name << "  ";
+            file << mrk << "   ";
             file.close();
         }
         void Read() {
-            ifstream file ;
-            file.open("emp.dat");
+            ifstream file;
+            file.open("Emp.dat");
             file >> no ;
             file >> name ;
-            file >> mark;
+            file >> mrk;
             file.close();
-        }
-        void Display() {
-            cout << "Employee no :"<<no <<endl;
-            cout << "Employee name :"<<name <<endl;
-            cout << "Employee marks :"<<mark <<endl;
         }
     };
 int main() {
-    Emp e;
-    e.GetEmp();
+    Employee e;
+    e.Getdata();
     e.Write();
     e.Read();
-    e.Display();
     return 0;
 }
