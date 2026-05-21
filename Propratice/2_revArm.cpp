@@ -8,11 +8,11 @@ int reverse( int n , int rev =0){
     if( n == 0) return rev;
     int dig = n % 10;
     return reverse(n/10,rev * 10 + dig);
-}
+} 
 int main() {
     int n;
     cout << "Enter a number :";
-    cin>>n;
+     cin>>n;
     int m = n;
     cout << "Reverse number is :"<<reverse(n)<<endl;
     int rem , sum = 0;
