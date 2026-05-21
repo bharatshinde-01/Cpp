@@ -17,7 +17,7 @@ using namespace std;
         void Date() {
             const char* ch [] = {"jan","fed"};
         
-        cout << dd <<"-"<<ch[mm-1]<<"-"<<yyyy<<endl;
+        cout << dd <<"- "<<ch[mm-1]<<"-"<<yyyy<<endl;
         }
     };
 int main() {
