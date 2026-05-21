@@ -9,7 +9,7 @@ using namespace std;
 int main() {
     int no;
     char name[50];
-    char add[100];
+    char  add[100];
     char num[10];
     float bal;
     float dep;
