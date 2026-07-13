@@ -13,6 +13,5 @@ int main() {
 
     }
     cout << rev <<endl;
-    cout << rev + a;
 
 }
